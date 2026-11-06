@@ -66,7 +66,7 @@ Nvidia GPU `sudo pacman -S linux-zen-headers nvidia-open-dkms`
 
 Framework `sudo pacman -S framework-system`
 
-`sudo pacman -S brave-origin-bin cosmic-text-editor cpupower gamemode mission-center noto-color-emoji-fontconfig noto-fonts-cjk obs-pipewire-audio-capture obs-studio-tytan652 octopi papirus-icon-theme photocraft protonplus scx-tools signal-desktop steam webapp-manager xdg-user-dirs`
+`sudo pacman -S cloudflare-warp-bin cosmic-text-editor cpupower gamemode mission-center noto-color-emoji-fontconfig noto-fonts-cjk obs-pipewire-audio-capture obs-studio-tytan652 octopi papirus-icon-theme photocraft protonplus scx-tools signal-desktop steam ungoogled-chromium-bin xdg-user-dirs`
 
 `systemctl enable cpupower; systemctl enable scx_loader`
 
