@@ -8,19 +8,19 @@ Boot from the drive in your boot/UEFI menu. Check your motherboards manual if yo
 
 Connecting to the internet for Ethernet users should be automatic. Wifi users will need to follow the following steps. 
 
-`iwctl`
+```iwctl```
 
-`station wlan0 scan`
+```station wlan0 scan```
 
-`station wlan0 connect *Your SSID*`
+```station wlan0 connect *Your SSID*```
 
 *Enter password*
 
-`exit`
+```exit```
 
 Go to https://wiki.archlinux.org/title/Iwd if you need more info.
 
-Run `archinstall` to open archinstall.
+Run ```archinstall``` to open archinstall.
 
 ## archinstall Setup
 
@@ -70,14 +70,15 @@ Framework `sudo pacman -S framework-system`
 
 `sudo bootctl install`
 
-`sudo sbctl enroll-keys --custom` (Need to make sure this works `sudo sbctl list-enrolled-keys`)
+`sudo sbctl create-keys`
+
+`sudo sbctl enroll-keys --custom`
 
 ```
 EAC_REQ="lockdown=integrity lsm=landlock,lockdown,yama,integrity,bpf iommu.passthrough=0 intel_iommu=on module.sig_enforce=1 sysctl.kernel.kexec_load_disabled=1"
 EAC_OPTS="$(sed -E 's/(^| )(BOOT_IMAGE|initrd)=[^ ]*//g' /proc/cmdline) $EAC_REQ"
 echo "$EAC_OPTS"
 ```
-(Needs testing, instructions unclear.)
 
 `printf 'title   CachyOS (EAC)\nlinux   /vmlinuz-linux-cachyos-eac\ninitrd  /initramfs-linux-cachyos-eac.img\noptions %s\n' "$EAC_OPTS" \
   | sudo install -Dm644 /dev/stdin /boot/loader/entries/cachyos-eac.conf`
