@@ -28,11 +28,11 @@ exit
 
 Go to https://wiki.archlinux.org/title/Iwd if you need more info.
 
-Run 
+Run `archinstall` to open archinstall.
+
 ```
 archinstall
 ```
-to open archinstall.
 
 ## archinstall Setup
 
@@ -56,35 +56,57 @@ Yes
 
 chroot into installation for post-installation configurations
 
-`sudo pacman -S cosmic-session cosmic-terminal firefox ly nemo-fileroller`
+```
+sudo pacman -S cosmic-session cosmic-terminal firefox ly nemo-fileroller
+```
 
-`systemctl enable ly@tty1.service; systemctl disable getty@tty1.service`
+```
+systemctl enable ly@tty1.service; systemctl disable getty@tty1.service
+```
 
-`exit`
+```
+exit
+```
 
-`reboot`
+```
+reboot
+```
 
 ## Post archinstall Setup
 
-`sudo pacman-key --recv-keys F3B607488DB35A47 --keyserver keyserver.ubuntu.com; sudo pacman-key --lsign-key F3B607488DB35A47; sudo pacman -U 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-keyring-20240331-1-any.pkg.tar.zst'; sudo pacman -U 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-mirrorlist-27-1-any.pkg.tar.zst'`
+```
+sudo pacman-key --recv-keys F3B607488DB35A47 --keyserver keyserver.ubuntu.com; sudo pacman-key --lsign-key F3B607488DB35A47; sudo pacman -U 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-keyring-20240331-1-any.pkg.tar.zst'; sudo pacman -U 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-mirrorlist-27-1-any.pkg.tar.zst'
+```
 
 Root paste settings folders now.
 
-`sudo pacman -Syu`
+```
+sudo pacman -Syu
+```
 
-`sudo pacman -S brave-origin-bin cachyos-eac-signing-key cosmic-text-editor cpupower gamemode linux-cachyos-eac mission-center obs-studio octopi papirus-icon-theme photocraft protonplus sbctl sbsigntools scx-tools signal-desktop steam systemd-boot-cachyos-signed tpm2-tools xdg-user-dirs`
+```
+sudo pacman -S brave-origin-bin cachyos-eac-signing-key cosmic-text-editor cpupower gamemode linux-cachyos-eac mission-center obs-studio octopi papirus-icon-theme photocraft protonplus sbctl sbsigntools scx-tools signal-desktop steam systemd-boot-cachyos-signed tpm2-tools xdg-user-dirs
+```
 
-Nvidia GPU `sudo pacman -S linux-cachyos-eac-nvidia-open`
+Nvidia GPU sudo pacman -S linux-cachyos-eac-nvidia-open
 
-Framework `sudo pacman -S framework-system`
+Framework sudo pacman -S framework-system
 
-`systemctl enable cpupower; systemctl enable scx_loader`
+```
+systemctl enable cpupower; systemctl enable scx_loader
+```
 
-`sudo bootctl install`
+```
+sudo bootctl install
+```
 
-`sudo sbctl create-keys`
+```
+sudo sbctl create-keys
+```
 
-`sudo sbctl enroll-keys --custom`
+```
+sudo sbctl enroll-keys --custom
+```
 
 ```
 EAC_REQ="lockdown=integrity lsm=landlock,lockdown,yama,integrity,bpf iommu.passthrough=0 intel_iommu=on module.sig_enforce=1 sysctl.kernel.kexec_load_disabled=1"
@@ -92,14 +114,20 @@ EAC_OPTS="$(sed -E 's/(^| )(BOOT_IMAGE|initrd)=[^ ]*//g' /proc/cmdline) $EAC_REQ
 echo "$EAC_OPTS"
 ```
 
-`printf 'title   CachyOS (EAC)\nlinux   /vmlinuz-linux-cachyos-eac\ninitrd  /initramfs-linux-cachyos-eac.img\noptions %s\n' "$EAC_OPTS" \
-  | sudo install -Dm644 /dev/stdin /boot/loader/entries/cachyos-eac.conf`
+```
+printf 'title   CachyOS (EAC)\nlinux   /vmlinuz-linux-cachyos-eac\ninitrd  /initramfs-linux-cachyos-eac.img\noptions %s\n' "$EAC_OPTS" \
+  | sudo install -Dm644 /dev/stdin /boot/loader/entries/cachyos-eac.conf
+```
 
-`systemctl reboot --firmware-setup`
+```
+systemctl reboot --firmware-setup
+```
 
 Enable Secure Boot and Exit.
 
-`sudo pacman -Syyuu; sudo pacman -Scc --noconfirm; pacman -Qqd | sudo pacman -Rsu - `
+```
+sudo pacman -Syyuu; sudo pacman -Scc --noconfirm; pacman -Qqd | sudo pacman -Rsu - 
+```
 
 # Credit
 * The Arch Wiki && CachyOS Devs for various configs
