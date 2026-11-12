@@ -28,13 +28,11 @@ Mirrors and repositories >> Select regions >> *Your Country* with space >> Optio
 
 Disk configuration >> Partitioning >> Use a best-effort default partition layout >> *Your Boot Disk* >> btrfs >> Yes >> Use compression >> Back
 
-Bootloader >> Bootloader >> Limine >> Unified kernel images >> No >> Back
-
-Kernels >> Deselect "linux" with space >> Select "linux-zen" with space
+Bootloader >> Unified kernel images >> No >> Back
 
 Authentication >> User account >> Add a user >> *Your username* >> *Your password* >> *Confirm password* >> Yes >> Confirm and exit >> Back
 
-Network configuration >> Use Network Manager (iwd backend)
+Network configuration >> Use Network Manager (default backend)
 
 Timezone >> *Select your timezone*
 
@@ -56,17 +54,17 @@ chroot into installation for post-installation configurations
 
 ## Post archinstall Setup
 
-`sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com; sudo pacman-key --lsign-key 3056513887B78AEB; sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'; sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'`
+`sudo pacman-key --recv-keys F3B607488DB35A47 --keyserver keyserver.ubuntu.com; sudo pacman-key --lsign-key F3B607488DB35A47; sudo pacman -U 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-keyring-20240331-1-any.pkg.tar.zst'; sudo pacman -U 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-mirrorlist-27-1-any.pkg.tar.zst'`
 
 Root paste settings folders now.
 
 `sudo pacman -Syu`
 
-Nvidia GPU `sudo pacman -S linux-zen-headers nvidia-open-dkms`
+`sudo pacman -S brave-origin-bin cosmic-text-editor cpupower gamemode linux-cachyos-eac mission-center obs-studio octopi papirus-icon-theme photocraft protonplus scx-tools signal-desktop steam systemd-boot-cachyos-signed xdg-user-dirs`
+
+Nvidia GPU `sudo pacman -S linux-cachyos-eac-nvidia-open`
 
 Framework `sudo pacman -S framework-system`
-
-`sudo pacman -S brave-origin-bin cosmic-text-editor cpupower gamemode limine-mkinitcpio-hook mission-center obs-pipewire-audio-capture obs-studio-tytan652 octopi papirus-icon-theme photocraft protonplus scx-tools signal-desktop steam xdg-user-dirs`
 
 `systemctl enable cpupower; systemctl enable scx_loader`
 
