@@ -8,19 +8,31 @@ Boot from the drive in your boot/UEFI menu. Check your motherboards manual if yo
 
 Connecting to the internet for Ethernet users should be automatic. Wifi users will need to follow the following steps. 
 
-```iwctl```
+```
+iwctl
+```
 
-```station wlan0 scan```
+```
+station wlan0 scan
+```
 
-```station wlan0 connect *Your SSID*```
+```
+station wlan0 connect *Your SSID*
+```
 
 *Enter password*
 
-```exit```
+```
+exit
+```
 
 Go to https://wiki.archlinux.org/title/Iwd if you need more info.
 
-Run ```archinstall``` to open archinstall.
+Run 
+```
+archinstall
+```
+to open archinstall.
 
 ## archinstall Setup
 
