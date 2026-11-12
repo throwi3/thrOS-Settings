@@ -28,7 +28,7 @@ exit
 
 Go to https://wiki.archlinux.org/title/Iwd if you need more info.
 
-Run `archinstall` to open archinstall.
+Run archinstall.
 
 ```
 archinstall
@@ -85,12 +85,8 @@ sudo pacman -Syu
 ```
 
 ```
-sudo pacman -S brave-origin-bin cachyos-eac-signing-key cosmic-text-editor cpupower gamemode linux-cachyos-eac mission-center obs-studio octopi papirus-icon-theme photocraft protonplus sbctl sbsigntools scx-tools signal-desktop steam systemd-boot-cachyos-signed tpm2-tools xdg-user-dirs
+sudo pacman -S brave-origin-bin cachyos-eac-signing-key cosmic-text-editor cpupower gamemode linux-cachyos-eac linux-cachyos-eac-nvidia-open mission-center obs-studio octopi papirus-icon-theme photocraft protonplus sbctl sbsigntools scx-tools signal-desktop steam systemd-boot-cachyos-signed tpm2-tools xdg-user-dirs
 ```
-
-Nvidia GPU sudo pacman -S linux-cachyos-eac-nvidia-open
-
-Framework sudo pacman -S framework-system
 
 ```
 systemctl enable cpupower; systemctl enable scx_loader
