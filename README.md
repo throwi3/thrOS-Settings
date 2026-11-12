@@ -68,7 +68,20 @@ Framework `sudo pacman -S framework-system`
 
 `systemctl enable cpupower; systemctl enable scx_loader`
 
-Reboot.
+`sudo bootctl install`
+
+`sudo sbctl enroll-keys --custom` (Need to make sure this works `sudo sbctl list-enrolled-keys`)
+
+`EAC_REQ="lockdown=integrity lsm=landlock,lockdown,yama,integrity,bpf iommu.passthrough=0 intel_iommu=on module.sig_enforce=1 sysctl.kernel.kexec_load_disabled=1"
+EAC_OPTS="$(sed -E 's/(^| )(BOOT_IMAGE|initrd)=[^ ]*//g' /proc/cmdline) $EAC_REQ"
+echo "$EAC_OPTS"` (Needs testing, instructions unclear.)
+
+`printf 'title   CachyOS (EAC)\nlinux   /vmlinuz-linux-cachyos-eac\ninitrd  /initramfs-linux-cachyos-eac.img\noptions %s\n' "$EAC_OPTS" \
+  | sudo install -Dm644 /dev/stdin /boot/loader/entries/cachyos-eac.conf`
+
+`systemctl reboot --firmware-setup`
+
+Enable Secure Boot and Exit.
 
 `sudo pacman -Syyuu; sudo pacman -Scc --noconfirm; pacman -Qqd | sudo pacman -Rsu - `
 
