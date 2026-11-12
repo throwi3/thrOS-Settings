@@ -60,7 +60,7 @@ Root paste settings folders now.
 
 `sudo pacman -Syu`
 
-`sudo pacman -S brave-origin-bin cosmic-text-editor cpupower gamemode linux-cachyos-eac mission-center obs-studio octopi papirus-icon-theme photocraft protonplus scx-tools signal-desktop steam systemd-boot-cachyos-signed xdg-user-dirs`
+`sudo pacman -S brave-origin-bin cachyos-eac-signing-key cosmic-text-editor cpupower gamemode linux-cachyos-eac mission-center obs-studio octopi papirus-icon-theme photocraft protonplus sbctl sbsigntools scx-tools signal-desktop steam systemd-boot-cachyos-signed tpm2-tools xdg-user-dirs`
 
 Nvidia GPU `sudo pacman -S linux-cachyos-eac-nvidia-open`
 
