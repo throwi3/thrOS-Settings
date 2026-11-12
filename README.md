@@ -85,8 +85,11 @@ sudo pacman -Syu
 ```
 
 ```
-sudo pacman -S brave-origin-bin cachyos-eac-signing-key cosmic-text-editor cpupower gamemode linux-cachyos-eac linux-cachyos-eac-nvidia-open mission-center obs-studio octopi papirus-icon-theme photocraft protonplus sbctl sbsigntools scx-tools signal-desktop steam systemd-boot-cachyos-signed tpm2-tools xdg-user-dirs
+sudo pacman -S brave-origin-bin cachyos-eac-signing-key cosmic-text-editor cpupower gamemode linux-cachyos-eac mission-center obs-studio octopi papirus-icon-theme photocraft protonplus sbctl sbsigntools scx-tools signal-desktop steam systemd-boot-cachyos-signed tpm2-tools xdg-user-dirs
 ```
+
+> [!IMPORTANT]
+> Append `linux-cachyos-eac-nvidia-open` to the end of the command above for Nvidia GPU Systems
 
 ```
 systemctl enable cpupower; systemctl enable scx_loader
