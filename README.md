@@ -104,7 +104,7 @@ sudo sbctl create-keys
 ```
 
 ```
-sudo sbctl enroll-keys --custom
+sudo sbctl enroll-keys --microsoft --firmware-builtin --custom
 ```
 
 ```
