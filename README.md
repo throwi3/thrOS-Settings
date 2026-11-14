@@ -75,6 +75,8 @@ reboot
 
 ## Post archinstall Setup
 
+Open *COSMIC Terminal*.
+
 ```
 sudo pacman-key --recv-keys F3B607488DB35A47 --keyserver keyserver.ubuntu.com; sudo pacman-key --lsign-key F3B607488DB35A47; sudo pacman -U 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-keyring-20240331-1-any.pkg.tar.zst'; sudo pacman -U 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-mirrorlist-27-1-any.pkg.tar.zst'
 ```
@@ -102,11 +104,16 @@ sudo bootctl install
 
 ```
 sudo sbctl create-keys
+
 ```
+> [!WARNING]
+> For the CachyOS Wiki: 'On ASUS and Gigabyte motherboards, run `sudo sbctl enroll-keys --microsoft --custom` as the last command below, without `--firmware-builtin`. On some of them the flag creates duplicate key entries, and the board stops with a Secure Boot Violation once Secure Boot is enabled. If that already happened, delete all Secure Boot keys in the firmware settings to enter Setup Mode again (see Enabling Setup Mode in UEFI), boot CachyOS and run `sudo sbctl enroll-keys --microsoft --custom`. Don’t use the command from the Secure Boot guide for this, it leaves out the CachyOS EAC CA.'
 
 ```
 sudo sbctl enroll-keys --microsoft --firmware-builtin --custom
 ```
+
+If sbctl stops with could not enroll built-in firmware keys, the firmware has no built-in keys and nothing was enrolled yet. Run the last command again without --firmware-builtin.
 
 ```
 EAC_REQ="lockdown=integrity lsm=landlock,lockdown,yama,integrity,bpf iommu.passthrough=0 intel_iommu=on module.sig_enforce=1 sysctl.kernel.kexec_load_disabled=1"
