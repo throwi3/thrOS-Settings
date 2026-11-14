@@ -26,7 +26,8 @@ station wlan0 connect *Your SSID*
 exit
 ```
 
-Go to https://wiki.archlinux.org/title/Iwd if you need more info.
+> [!TIP]
+> Go to https://wiki.archlinux.org/title/Iwd if you need more info.
 
 Run archinstall.
 
