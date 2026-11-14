@@ -113,7 +113,7 @@ sudo sbctl create-keys
 sudo sbctl enroll-keys --microsoft --firmware-builtin --custom
 ```
 
-If sbctl stops with could not enroll built-in firmware keys, the firmware has no built-in keys and nothing was enrolled yet. Run the last command again without --firmware-builtin.
+If `sbctl` stops with `could not enroll built-in firmware keys`, the firmware has no built-in keys and nothing was enrolled yet. Run the last command again without `--firmware-builtin`.
 
 ```
 EAC_REQ="lockdown=integrity lsm=landlock,lockdown,yama,integrity,bpf iommu.passthrough=0 intel_iommu=on module.sig_enforce=1 sysctl.kernel.kexec_load_disabled=1"
