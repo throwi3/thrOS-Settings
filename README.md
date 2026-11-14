@@ -114,8 +114,8 @@ echo "$EAC_OPTS"
 ```
 
 ```
-printf 'title   CachyOS (EAC)\nlinux   /vmlinuz-linux-cachyos-eac\ninitrd  /initramfs-linux-cachyos-eac.img\noptions %s\n' "$EAC_OPTS" \
-  | sudo install -Dm644 /dev/stdin /boot/loader/entries/cachyos-eac.conf
+printf 'title   thrOS (EAC)\nlinux   /vmlinuz-linux-cachyos-eac\ninitrd  /initramfs-linux-cachyos-eac.img\noptions %s\n' "$EAC_OPTS" \
+  | sudo install -Dm644 /dev/stdin /boot/loader/entries/thros-eac.conf
 ```
 
 ```
